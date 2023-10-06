@@ -1,0 +1,56 @@
+Ninja has an array ‘A’ of size ‘N’. He recently created a topic ‘Complete Sum’ and defined the term ‘completeSum[i]’ = Sum ( A[0] … A[i] ).
+
+Output the complete sum array of array ‘A’.
+
+Example :
+N = 3
+A = [ 1, 2, 3 ] 
+
+Explanation : 
+
+Complete sum for index 0 is ‘A[0]=1’.
+
+Complete sum for index 1 is ‘A[0] + A[1]’ = 3.
+
+Complete sum for index 2 is ‘A[0] + A[1] + A[2]’ = 6.
+
+So, we output [ 1, 3, 6 ].
+Input Format :
+The first line contains an integer 'T' which denotes the number of test cases to be run. Then the test cases follow.
+
+The second line of each test case contains an integer ‘N’ denoting the size of array ‘A’.
+
+The third line of each test case contains ‘N’ space-separated integers denoting the elements of array ‘A’.
+Output Format :
+For each test case, print the complete sum array for array ‘A’.
+
+Print the output of each test case in a new line.
+Note :
+You don’t need to print anything. It has already been taken care of. Just implement the given function.
+Constraints :
+1 <= T <= 5
+1 <= N <= 10^5
+0 <= A[i] <= 10^4
+
+Time Limit : 1 sec
+
+
+from os import *
+from sys import *
+from collections import *
+from math import *
+
+from typing import *
+
+def completeSum(a: List[int], n: int)-> List[int]:
+    sum = 0
+    sum_list = []
+    if n>0:
+        sum = a[0]
+        sum_list.append(a[0])
+        for i in range(1,n):
+            sum = sum+a[i]
+            sum_list.append(sum)
+        return sum_list
+    else:
+        return []
