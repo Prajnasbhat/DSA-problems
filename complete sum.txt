@@ -70,4 +70,4 @@ def completeSum(a: List[int], n: int)-> List[int]:
     return sum_list
 
 Time complexity - O(n) for one for loop
-space complexity - O(1) for passed lists
+space complexity - O(1) for passed list
