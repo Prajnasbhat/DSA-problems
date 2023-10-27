@@ -23,6 +23,7 @@ n == nums.length
 
 Follow-up: Could you solve the problem in linear time and in O(1) space?
 
+Solution1:
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
@@ -42,6 +43,8 @@ class Solution:
 
 Time complexity- O(n)
 space complexity -O(n)
+
+Better solution with Moor's Voting algorithm
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
