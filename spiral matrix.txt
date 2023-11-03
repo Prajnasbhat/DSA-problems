@@ -1,0 +1,75 @@
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+
+Example 1:
+1 2 3
+4 5 6
+7 8 9
+
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+Example 2:
+
+1 2 3 4
+5 6 7 8
+9 10 11 12
+
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+There exists only one solution.
+we need four pointers indicating direction of movement for spiral matrix.
+top , bottom, left, right
+First we need to move  right,bottom, left. top
+
+ 
+    left     right
+top  1   2   3
+     4   5   6
+bott 7   8   9
+          
+
+left = 0,top=0,bottom=5,right=5
+first loop is to move right
+for i in range(left->right)
+	matrix[top][i]
+top+=1
+for i in range(top->bottom)
+ 	matrix[i][right]
+right-=1
+for i in range(right->left)
+	matrix[bottom][i]
+bottom-=1
+for i in range(bottom-top)
+	matrix[i][left]
+left+=1
+
+
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        arr = []
+        left = 0
+        right = len(matrix[0])-1
+        top = 0
+        bottom = len(matrix)-1
+        while left<=right and top<=bottom:
+            for i in range(left,right+1):
+                arr.append(matrix[top][i])
+            top+=1
+            for i in range(top,bottom+1):
+                arr.append(matrix[i][right])
+            right-=1
+            if top<=bottom:
+                for i in range(right,left-1,-1):
+                    arr.append(matrix[bottom][i])
+                bottom-=1
+            if left<=right:
+                for i in range(bottom,top-1,-1):
+                    arr.append(matrix[i][left])
+                left+=1
+        return arr
+
+Time complexity - O(mn)
+Space complextity - O(m+n)
