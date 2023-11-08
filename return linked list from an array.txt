@@ -1,0 +1,36 @@
+Given an array arr[] of size N. The task is to create linked list from the given array.
+Examples: 
+ 
+
+Input : arr[]={1, 2, 3, 4, 5}
+Output : 1->2->3->4->5
+
+Input :arr[]={10, 11, 12, 13, 14}
+Output : 10->11->12->13->14
+
+Solution:
+
+class Node:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+# Do not change code above.
+
+
+def constructLL(arr: [int]) -> Node:
+    # Write your code here
+    i=0
+    head = Node(arr[i])
+    temp = head
+    for i in range(1,len(arr)):
+        
+        curNode = Node(arr[i])
+        temp.next = curNode
+        temp = temp.next
+
+    return head
+
+Time complexity - O(n)
+Space complexity - O(n)
